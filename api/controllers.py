@@ -30,7 +30,7 @@ class DogDetail(APIView):
     def get_object(self, pk):
         try:
            return Dog.objects.get(pk=pk)
-       except Dog.DoesNotExist:
+        except Dog.DoesNotExist:
            raise Http404
 
     def get(self, request, pk, format=None):
@@ -74,8 +74,8 @@ class BreedDetail(APIView):
     def get_object(self, pk):
        try:
            return Breed.objects.get(pk=pk)
-       except Snippet.DoesNotExist:
-            raise Http404
+       except Breed.DoesNotExist:
+           raise Http404
 
     def get(self, request, pk, format=None):
         breed = self.get_object(pk)

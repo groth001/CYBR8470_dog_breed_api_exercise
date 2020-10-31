@@ -1,15 +1,14 @@
-#from django.urls import path
-from django.conf.urls import include, url
-from rest_framework.urlpatterns import format_suffix_patterns
+from django.urls import include, path
+#from django.conf.urls import include, url
 from rest_framework import routers
 from api import controllers
 
 router = routers.DefaultRouter(trailing_slash=False)
 
 urlpatterns = [
-    url(r'^dog/', controllers.DogList.as_view()),
-    url(r'^dog/<int:pk>/', controllers.DogDetail.as_view()),
-    url(r'^breed/', controllers.BreedList.as_view()),
-    url(r'^breed/<int:pk>/', controllers.BreedDetail.as_view()),
-    url(r'^', include(router.urls)),
+    path('dog/', controllers.DogList.as_view()),
+    path('dog/<int:pk>/', controllers.DogDetail.as_view()),
+    path('breed/', controllers.BreedList.as_view()),
+    path('breed/<int:pk>/', controllers.BreedDetail.as_view()),
+    path('', include(router.urls)),
 ]

@@ -8,7 +8,7 @@ class Breed(models.Model):
     MEDIUM = 'Medium'
     LARGE = 'Large'
     SIZES = [
-        (TINY, 'Tiny')
+        (TINY, 'Tiny'),
         (SMALL, 'Small'),
         (MEDIUM, 'Medium'),
         (LARGE, 'Large'),
@@ -16,10 +16,10 @@ class Breed(models.Model):
 
     name = models.CharField(max_length=30)
     size = models.CharField(max_length=6, choices=SIZES, default=TINY)
-    friendliness = models.IntegerField(default=1, validators=[MinValueValidator(min_value=1), MaxValueValidator(max_value=5)])
-    trainability = models.IntegerField(default=1, validators=[MinValueValidator(min_value=1), MaxValueValidator(max_value=5)])
-    sheddingamount = models.IntegerField(default=1, validators=[MinValueValidator(min_value=1), MaxValueValidator(max_value=5)])
-    exerciseneeds = models.IntegerField(default=1, validators=[MinValueValidator(min_value=1), MaxValueValidator(max_value=5)])
+    friendliness = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    trainability = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    sheddingamount = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    exerciseneeds = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
 
 class Dog(models.Model):
     name = models.CharField(max_length=30)
